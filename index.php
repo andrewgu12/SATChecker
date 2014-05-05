@@ -2,12 +2,15 @@
   require_once("included.php"); 
   if(isset($_REQUEST['studID']))
   {
-      $user = $_REQUEST['studID'];
+      $user = $_REQUEST['studID'];      
       $pass = sha1($_REQUEST['pass']);
       $results = mysqli_query($conn, "SELECT * FROM `Students` WHERE `ID`='$user' LIMIT 1");
       $student = mysqli_fetch_array($results);
-      $_SESSION['user'] = $user;
-      header("Location: index_home.php");
+      if($pass == $student['Password'])
+      {
+        $_SESSION['user'] = $user;
+        header("Location: index_home.php");
+      }
   }
   if(isset($_SESSION['user'])) 
   {
@@ -38,7 +41,7 @@
       
         <div id="content">
 
-          <form id="login">  
+          <form id="login" method="post" action="index.php">  
             <div class="row">
               <div class="large-3 columns">
                 <label>Username</label>
@@ -55,7 +58,7 @@
                 <input type="password" id="pass" name="pass"/>
               </div>
             </div>             
-            <a href="#" class="button right" id="loginButton">Login</a>
+            <input type="submit" class="button right" id="loginButton">
 
           </form>
         </div>      

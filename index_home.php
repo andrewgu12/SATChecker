@@ -25,24 +25,7 @@
       
         <div id="content">
 
-          <form id="login">  
-            <div class="row">
-              <div class="large-3 columns">
-                <label>Username</label>
-              </div>
-              <div class="large-9 columns">
-                <input type="text" id="studID" name="studID" />
-              </div>
-            </div>
-           <div class="row">
-              <div class="large-3 columns">
-                <label>Password</label>
-              </div>
-              <div class="large-9 columns">
-                <input type="password" id="pass" name="pass"/>
-              </div>
-            </div>             
-            <a href="#" class="button right" id="loginButton">Login</a>
+        
 
           </form>
         </div>      
