@@ -57,7 +57,19 @@ div#menu-container {
 		li:hover {
 			height: 50px;
 			background-color: #3e713f;
-		}		
+		}
+		.dropdown {
+			transition: none;
+			-webkit-transition: none;
+			width: 100px;
+			margin: 0;
+			padding: 0;
+		}	
+		.drop {		
+			width: 100px;
+			margin: 0;
+			padding: 0;		
+		}	
 	}
 }
 div#content {
