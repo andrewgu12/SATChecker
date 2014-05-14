@@ -27,10 +27,11 @@
 
         
 
-          </form>
+        
         </div>      
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js" />
+    <script src="js/app.js"></script>
   </body>
 </html>
