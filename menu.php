@@ -9,8 +9,8 @@
                 </li>
                 <li class="has-dropdown"><a href="#">SAT II</a>
                     <ul class="dropdown">
-                        <li class="drop"><a href="#">Score a Test</a></li>
-                        <li class="drop"><a href="#">Past Tests</a></li>
+                        <li class="drop"><a href="scoreTestII.php">Score a Test</a></li>
+                        <li class="drop"><a href="prevIITest.php">Past Tests</a></li>
                     </ul>
                 </li>
               </ul>
