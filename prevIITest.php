@@ -10,8 +10,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <script src="bower_components/modernizr/modernizr.js"></script>
   </head>
-  <body>
-    <div i onchange='javascript:searchTests()'d="container">
+  <body>    
       
         <div id="header">
           <div id="logo">
@@ -27,7 +26,7 @@
           
             <?php
               //$counter = 0; 
-              echo "<form id='pickIITest'>";
+              /*echo "<form id='pickIITest'>";
               echo "<div class='row'>";
               echo "<div class='large-3 small-3 columns'>";
               echo "<label>Subject";
@@ -40,15 +39,30 @@
               echo "<div class='large-3 small-3 columns'>";
               echo "<label>Month";
               echo "<select id='month' onchange='javascript:searchTests()'>";
-              echo "<option value=''></option></select></label></div>";
+              echo "<option value='1'>January</option>";
+              echo "<option value='2'>Feburary</option>";
+              echo "<option value='3'>March</option>";
+              echo "<option value='4'>April</option>";
+              echo "<option value='5'>May</option>";
+              echo "<option value='6'>June</option>";
+              echo "<option value='7'>July</option>";
+              echo "<option value='8'>August</option>";
+              echo "<option value='9'>September</option>";
+              echo "<option value='10'>October</option>";
+              echo "<option value='11'>November</option>";
+              echo "<option value='12'>December</option>";
+              echo "</select></label></div>";
               echo "<div class='large-3 small-3 columns'>";
               echo "<label>Day";
-              echo "<select id='day' onchange='javascript:searchTests()'>";
-              echo "<option value=''></option></select></label></div>";
+              echo "<select id='day' onchange='javascript:searchTests()'>";              
+              for($i = 1; $i <= 31; $i++) {
+                echo "<option value=$i>$i</option>";
+              }
+              echo "</select></label></div>";
               echo "<div class='large-3 small-3 columns'>";
               echo "<label>Year";
-              echo "<select id='year' onchange='javascript:searchTests()'>";
-              echo "<option value=''></option></select></label></div></form>";          
+              echo "<input type='text' id='year' name='year' placeholder='2014'  onkeyup='javascript:searchTests()' />";
+              echo "</label></div></form>";          */
               echo "<div id='scoreII'>\n";
 	          	echo "<table id='listTest'>";
 				echo "<thead>";
@@ -60,8 +74,30 @@
 				echo "<th>Score</th>";
 				echo "<th>Action</th>";
 				echo "</tr>";
-				echo "</thead><tbody>";  
-              include('listTests.php');                      
+				echo "</thead><tbody>";                
+                $query = "SELECT * FROM `studSATII` WHERE `studID` = '$user' ORDER BY `year` ASC";                    
+                $result = mysqli_query($conn, $query);
+                while($row = mysqli_fetch_array($result)){      
+                  $test = $row['Test'];     
+                  switch($test) {
+                    case "ma": $testName = 'Math'; break;
+                    case "ph": $testName = 'Physics'; break;
+                  }
+                  $month = $row['month'];
+                  //$fullName = $name . ' ' . $lastName;
+                  $date = $row['date'];
+                  $year = $row['year']; 
+                  $score = $row['score']; 
+                  $testID = $month . $date . $year;       
+                  echo "<tr>";
+                  echo "<td>$testName</td>";
+                  echo "<td>$month</td>";
+                  echo "<td>$date</td>";
+                  echo "<td>$year</td>";
+                  echo "<td>$score</td>";
+                  echo "<td><a href='viewTest.php?id=$testID'>View Test</a></td>";
+                  echo "</tr>";
+                }
               echo "</tbody></table>";
               echo "</div>\n";
             ?>
@@ -71,7 +107,7 @@
         </div>      
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="bower_components/foundation/js/foundation.min.js" />
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>3

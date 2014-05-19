@@ -26,27 +26,37 @@
         <div id="content">
           
             <?php
-              //$counter = 0;              
-              echo "<form id='scoreI'>\n";
+              //$counter = 0;         
+              /*TODO: 
+             - add in instructions To enter TEST MONTH AND YEAR
+             -upon clicking calc, form will hit top of the scoreTestI.php 
+             -retrieve test month, year, student answers and upload them to the database
+             -page will redirect to scoreTestI.php with ID -> score test based upon student answers and correct answers
+             */        
+              echo "<form id='scoreI' method='post' action='scoreTest.php'>\n";
+
               echo "<div class='row'>";
-              echo "<div class='large-4 small-4 columns'>";
+              echo "<div class='large-6 small-6 columns'>";
               echo "<label>Month";
-              echo "<select>";
-              echo "<option value=''></option></select></label></div>";
-              echo "<div class='large-4 small-4 columns'>";
-              echo "<label>Day";
-              echo "<select>";
-              echo "<option value=''></option></select></label></div>";
-              echo "<div class='large-4 small-4 columns'>";
+              echo "<select id='month'>";
+              echo "<option value='1'>January</option>";
+              echo "<option value='2'>February</option>";
+              echo "<option value='3'>March</option>";
+              echo "<option value='4'>April</option>";
+              echo "<option value='5'>May</option>";
+              echo "<option value='6'>June</option>";
+              echo "<option value='7'>July</option>";
+              echo "<option value='8'>August</option>";
+              echo "<option value='9'>September</option>";
+              echo "<option value='10'>October</option>";
+              echo "<option value='11'>November</option>";
+              echo "<option value='12'>December</option>";
+              echo "</select></label></div>";
+              
+              echo "<div class='large-6 small-6 columns'>";
               echo "<label>Year";
               echo "<select>";
               echo "<option value=''></option></select></label></div>";
-              /*echo "<div class='row'><div class='large-3 small-3 columns'>";
-              echo "<label for='essay' class='left'>Essay Score: </label>";
-              echo "</div>";
-              echo "<div class='small-9 large-9 columns'>";
-              echo "<input type='text' id='essay' placeholder='Enter Score here'>";
-              echo "</div></div>";*/
               for($outerCounter = 1; $outerCounter <= 10; $outerCounter++) {
                 echo "<h3>Section $outerCounter</h3>";
                 echo "<div class='row'>\n";
@@ -90,7 +100,7 @@
               echo "<div class='large-9 small-9 columns'>";            
               echo "<input type='text' id='essay' placeholder='Enter Score here'>";
               echo "</div></div>";
-              echo "<input type='submit' class='button right' id='loginButton' value='Calculate!'>";
+              echo "<input type='submit' class='button right' id='scoreI' value='Calculate!'>";
               echo "</form>\n";
             ?>
         

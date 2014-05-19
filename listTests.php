@@ -1,7 +1,7 @@
 <?php
 require_once("included.php");
 require_once("login.php");
-		if(isset($_REQUEST['sub'])) {
+		if(isset($_REQUEST['Test'])) {
 			$subject = $_REQUEST['Test'];				
 		}
 		if(isset($_REQUEST['month'])) {

@@ -4,7 +4,7 @@
                 <li class="has-dropdown"><a href="#">SAT I</a>
                 	<ul class="dropdown">
                 		<li class="drop"><a href="scoreTest.php">Score a Test</a></li>
-                		<li class="drop"><a href="#">Past Tests</a></li>
+                		<li class="drop"><a href="prevITest.php">Past Tests</a></li>
                 	</ul>
                 </li>
                 <li class="has-dropdown"><a href="#">SAT II</a>

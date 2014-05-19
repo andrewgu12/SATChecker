@@ -26,8 +26,9 @@
         <div id="content">
           
             <?php
-              //$counter = 0;              
-              echo "<form id='scoreII'>\n";
+            
+            //upload tests
+              echo "<form id='scoreII' method='post' action='scoreTestII.php'>\n";
               echo "<div class='row'>";
               echo "<div class='large-3 small-3 columns'>";
               echo "<label>Subject";
