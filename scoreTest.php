@@ -6,12 +6,13 @@
   {      
       $year = $_REQUEST['year'];
       $month = $_REQUEST['month'];
-      $testID = $year . $month;
+      //$testID = $year . $month;
       $frq = $_REQUEST['frq'];
-      
+      $essay = $_REQUEST['essay'];
 
       for($outerCounter = 1; $outerCounter <= 10; $outerCounter++) {
         $sectionNum = 'section' . $outerCounter;
+        $answers = " ";
         if($frq == $outerCounter)
         {
           for($counter = 1; $counter <= 8; $counter++)  {
@@ -50,7 +51,7 @@
           case 10: $case10 = $answers; break;
         }
       }
-      echo $case1;
+      mysqli_query($conn, "INSERT INTO `studSATI` (`ID`, `section1`, `section2`, `section3`, `section4`, `section5`, `section6`, `section7`, `section8`, `section9`, `section10`, `essay`, `month`, `year`) VALUES ('$user', '$case1', '$case2', '$case3', '$case4', '$case5', '$case6', '$case7', '$case8', '$case9', '$case10', '$essay', '$month', '$year') ");
   }
 ?>
 <!doctype html>
