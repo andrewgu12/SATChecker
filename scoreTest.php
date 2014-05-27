@@ -22,7 +22,7 @@
           }
           for($counter = 9; $counter <= 18; $counter++)
           {
-              $frqNumber = 'frq' . $counterNumber;
+              $frqNumber = 'frq' . $counter;
               $answer = $_REQUEST[$frqNumber];
               $answers .= $answer;
               $answers .= ", ";
@@ -50,6 +50,7 @@
           case 10: $case10 = $answers; break;
         }
       }
+      echo $case1;
   }
 ?>
 <!doctype html>
