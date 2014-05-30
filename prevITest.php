@@ -82,13 +82,13 @@
                   $date = $row['date'];
                   $year = $row['year']; 
                   $score = $row['score']; 
-                  $testID = $month .  $year;       
+                  $testID = $year . $month;       
                   echo "<tr>";                  
                   echo "<td>$month</td>";
                   echo "<td>$date</td>";
                   echo "<td>$year</td>";
                   echo "<td>$score</td>";
-                  echo "<td><a href='viewTest.php?id=$testID'>View Test</a></td>";
+                  echo "<td><a href='gradeItest.php?id=$testID'>View Test</a></td>";
                   echo "</tr>";
                 }
               echo "</tbody></table>";

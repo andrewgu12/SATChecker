@@ -6,11 +6,11 @@
   {      
       $year = $_REQUEST['year'];
       $month = $_REQUEST['month'];
-      //$testID = $year . $month;
+      $testID = $year . $month;
       $frq = $_REQUEST['frq'];
       $essay = $_REQUEST['essay'];
 
-      for($outerCounter = 1; $outerCounter <= 10; $outerCounter++) {
+      for($outerCounter = 2; $outerCounter <= 10; $outerCounter++) {
         $sectionNum = 'section' . $outerCounter;
         $answers = " ";
         if($frq == $outerCounter)
@@ -38,8 +38,7 @@
           }
         }
         switch($outerCounter) 
-        {
-          case 1: $case1 = $answers; break;
+        {          
           case 2: $case2 = $answers; break;
           case 3: $case3 = $answers; break;
           case 4: $case4 = $answers; break;
@@ -52,6 +51,7 @@
         }
       }
       mysqli_query($conn, "INSERT INTO `studSATI` (`ID`, `section1`, `section2`, `section3`, `section4`, `section5`, `section6`, `section7`, `section8`, `section9`, `section10`, `essay`, `month`, `year`) VALUES ('$user', '$case1', '$case2', '$case3', '$case4', '$case5', '$case6', '$case7', '$case8', '$case9', '$case10', '$essay', '$month', '$year') ");
+      header("Location: gradeItest.php?id=$testID");
   }
 ?>
 <!doctype html>
@@ -108,7 +108,7 @@
               echo "<div class='large-6 small-6 columns'>";
               echo "<label>Year";             
               echo "<input type='text' id='year' name='year' placeholder='2014' /></label></div>";
-              for($outerCounter = 1; $outerCounter <= 10; $outerCounter++) {
+              for($outerCounter = 2; $outerCounter <= 10; $outerCounter++) {
                 echo "<h3>Section $outerCounter</h3>";
                 echo "<div class='row'>\n";
                 $sectionNum = 'section' . $outerCounter;
@@ -130,7 +130,7 @@
               }
               echo "<h3>Student Produced Response: </h3>";
               echo "<label>Part of section: ";
-              echo "<select name='frq'><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option></select>";
+              echo "<select name='frq'><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option></select>";
               echo "<div class='row'>";
               for($counter = 1; $counter <= 12; $counter++)
               {
