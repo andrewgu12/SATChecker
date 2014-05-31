@@ -1,18 +1,18 @@
 <?php 
   require_once("included.php"); 
-  if(isset($_REQUEST['studID']))
+  if(isset($_REQUEST['teachID']))
   {
-      $user = $_REQUEST['studID'];      
+      $user = $_REQUEST['teachID'];      
       $pass = sha1($_REQUEST['pass']);
-      $results = mysqli_query($conn, "SELECT * FROM `Students` WHERE `ID`='$user' LIMIT 1");
-      $student = mysqli_fetch_array($results);
-      if($pass == $student['Password'])
+      $results = mysqli_query($conn, "SELECT * FROM `Admin` WHERE `ID`='$user' LIMIT 1");
+      $teacher = mysqli_fetch_array($results);
+      if($pass == $teacher['Password'])
       {
-        $_SESSION['user'] = $user;
+        $_SESSION['admin'] = $user;
         header("Location: index_home.php");
       }
   }
-  if(isset($_SESSION['user'])) 
+  if(isset($_SESSION['admin'])) 
   {
       header("Location: index_home.php");
       die;
@@ -47,7 +47,7 @@
                 <label>Username</label>
               </div>
               <div class="large-9 columns">
-                <input type="text" id="studID" name="studID" />
+                <input type="text" id="teachID" name="teachID" />
               </div>
             </div>
            <div class="row">

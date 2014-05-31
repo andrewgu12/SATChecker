@@ -1,8 +1,8 @@
 <?php
-	if($_SESSION['user'] == "") {
+	if($_SESSION['admin'] == "") {
 		header("Location: index.php");
 		die;
 	} else {
-		$user = $_SESSION['user'];
+		$user = $_SESSION['admin'];
 	}
 ?>
