@@ -13,30 +13,12 @@ require_once("included.php");
       for($outerCounter = 2; $outerCounter <= 10; $outerCounter++) {
         $sectionNum = 'section' . $outerCounter;
         $answers = " ";
-        if($frq == $outerCounter)
-        {
-          for($counter = 1; $counter <= 8; $counter++)  {
-              $boxNumber = $sectionNum .'box' . $counter;
-              $answer = $_REQUEST[$boxNumber];
-              $answers .= $answer; 
-              $answers .= ", ";            
-          }
-          for($counter = 9; $counter <= 18; $counter++)
-          {
-              $frqNumber = 'frq' . $counter;
-              $answer = $_REQUEST[$frqNumber];
-              $answers .= $answer;
-              $answers .= ", ";
-          }
-        }
-        else {
           for($counter = 1; $counter <= 48; $counter++)  {
               $boxNumber = $sectionNum .'box' . $counter;
               $answer = $_REQUEST[$boxNumber];
               $answers .= $answer; 
               $answers .= ", ";            
-          }
-        }
+          }        
         switch($outerCounter) 
         {          
           case 2: $case2 = $answers; break;
@@ -76,15 +58,14 @@ require_once("included.php");
         </div> 
       
         <div id="content">
-          
+          <h3>Instructions</h3>
+            <ol>
+              <li>Select the month and the year of the test.</li>              
+              <li>Enter each answer for each section using either capitals or lowercase. Either is fine.</li>
+              <li>Enter ALL fractions as decimal answers to 2 decimal points. DO NOT ROUND.</li>
+              <li>Any unused boxes, just skip them.</li>
+              </ol>
             <?php
-              //$counter = 0;         
-              /*TODO: 
-             - add in instructions To enter TEST MONTH AND YEAR
-             -upon clicking calc, form will hit top of the scoreTestI.php 
-             -retrieve test month, year, student answers and upload them to the database
-             -page will redirect to scoreTestI.php with ID -> score test based upon student answers and correct answers
-             */        
               echo "<form id='scoreI' method='post' action='scoreTest.php'>\n";
 
               echo "<div class='row'>";
@@ -128,24 +109,6 @@ require_once("included.php");
                 }
                 echo "</div>\n";
               }
-              echo "<h3>Student Produced Response: </h3>";
-              echo "<label>Part of section: ";
-              echo "<select name='frq'><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option></select>";
-              echo "<div class='row'>";
-              for($counter = 1; $counter <= 12; $counter++)
-              {
-                echo "<div class='large-2 small-2 columns testBox'>";
-                $counterNumber = $counter + 8;
-                $frqNumber = 'frq' . $counterNumber;
-                echo "<label>$counterNumber. ";
-                echo "<input type='text' name='$frqNumber' id='$frqNumber' /></label></div>";
-                if($counter % 6 == 0) 
-                {
-                  echo "</div>";
-                  echo "<div class='row'>";
-                }
-              }
-              echo "</div>";
               echo "<div class='row'>";
               echo "<div class='large-3 small-3 columns'>";
               echo "<label for='essay' class='left'>Essay Score: </label></div>";

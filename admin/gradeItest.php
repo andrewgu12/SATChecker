@@ -30,9 +30,10 @@
              if(isset($_REQUEST['id'])) 
              {
                 $testID = $_REQUEST['id'];
+                $stud = $_REQUEST['stud'];
                 $year = substr($testID, 0, 4);
                 $month = substr($testID, 4, 5);
-                $student = mysqli_query($conn, "SELECT * FROM `studSATI` WHERE `ID`='$user' AND `month`='$month' AND `year`='$year'");               
+                $student = mysqli_query($conn, "SELECT * FROM `studSATI` WHERE `ID`='$stud' AND `month`='$month' AND `year`='$year'");               
                 $teacher = mysqli_query($conn, "SELECT * FROM `teachSATI` WHERE `month`='$month' AND `year`='$year' LIMIT 1");                                          
                 while($studRow = mysqli_fetch_array($student)) 
                 {                         
