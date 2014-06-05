@@ -1,6 +1,6 @@
 <nav id="nav-bar" class="top-bar" data-topbar>
               <ul class="left">
-                <li class="nodrop"><a href="#">home</a></li>
+                <li class="nodrop"><a href="index_home.php">home</a></li>
                 <li class="has-dropdown"><a href="#">Students</a>
                 	<ul class="dropdown">
                 		<li class="drop"><a href="addStud.php">Add a Student</a></li>                                                            		

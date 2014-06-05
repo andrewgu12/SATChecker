@@ -95,8 +95,15 @@ require_once("included.php");
               for($outerCounter = 2; $outerCounter <= 10; $outerCounter++) {
                 
                 echo "<h3>Section $outerCounter</h3>";
-                echo "<div class='row'>";                
-                echo "<div class='large-12 small-12 columns'>";
+                echo "<div class='row'>";        
+                echo "<div class='large-6 small-6 columns'>";
+                echo "<select id='sub' name='sub'>";
+                echo "<option value='m' selected='selected'>Math</option>";
+                echo "<option value='w'>Writing</option>";
+                echo "<option value=''"
+                echo "</select>"
+                echo "</div>";        
+                echo "<div class='large-6 small-6 columns'>";
                 echo "<label for='$outerCounter'><input type='text' name='$outerCounter' id='$outerCounter' placeholder='Enter the number of questions in this section....'/></label></div></div>";
                 echo "<div class='row'>\n";
                 $sectionNum = 'section' . $outerCounter;
